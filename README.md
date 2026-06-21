@@ -80,7 +80,7 @@ vsce package
 
 ### 安装 OpenCLI 命令
 
-``bash
+```bash
 # 全局安装 OpenCLI
 npm install -g @jackwener/opencli
 
@@ -102,7 +102,7 @@ opencli browser start
 
 项目提供了 PowerShell 脚本用于快速安装翻译插件：
 
-``powershell
+```powershell
 # 进入项目根目录
 cd "<项目根目录路径>"
 
@@ -116,7 +116,7 @@ cd "<项目根目录路径>"
 
 如果不使用脚本，可以手动复制文件：
 
-``powershell
+```powershell
 # 创建目标目录
 New-Item -ItemType Directory -Path "$env:USERPROFILE\.opencli\clis\my-bing" -Force
 
@@ -126,7 +126,7 @@ Copy-Item -Path ".\opencli\*.js" -Destination "$env:USERPROFILE\.opencli\clis\my
 
 ### 验证插件安装
 
-``bash
+```bash
 # 测试基本翻译功能
 opencli my-bing do-translate "Hello World"
 
