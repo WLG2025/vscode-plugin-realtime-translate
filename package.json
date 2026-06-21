@@ -6,10 +6,10 @@
   "icon": "icon_256.png",
   "repository": {
     "type": "git",
-    "url": "https://github.com/your-username/realtime-translate.git"
+    "url": "https://github.com/WLG2025/vscode-plugin-realtime-translate.git"
   },
   "bugs": {
-    "url": "https://github.com/your-username/realtime-translate/issues"
+    "url": "https://github.com/WLG2025/vscode-plugin-realtime-translate/issues"
   },
   "engines": {
     "vscode": "^1.85.0"
