@@ -1,0 +1,151 @@
+{
+  "name": "realtime-translate",
+  "displayName": "Realtime Translate",
+  "description": "VSCode 实时翻译插件，选中文本即可翻译为中文",
+  "version": "1.0.1",
+  "icon": "icon_256.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/realtime-translate.git"
+  },
+  "bugs": {
+    "url": "https://github.com/your-username/realtime-translate/issues"
+  },
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "realtimeTranslate",
+          "title": "Realtime Translate",
+          "icon": "icon_256_simple.svg"
+        }
+      ]
+    },
+    "views": {
+      "realtimeTranslate": [
+        {
+          "type": "webview",
+          "id": "realtimeTranslate.sidebar",
+          "name": "翻译",
+          "icon": "icon_256.png"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "realtimeTranslate.translate",
+        "title": "Realtime Translate: 翻译选中文本"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "realtimeTranslate.translate",
+        "key": "ctrl+shift+q",
+        "when": "editorHasSelection"
+      }
+    ],
+    "configuration": {
+      "title": "Realtime Translate",
+      "properties": {
+        "realtimeTranslate.hoverEnabled": {
+          "type": "boolean",
+          "default": false,
+          "description": "是否在编辑器中启用悬浮窗展示翻译结果"
+        },
+        "realtimeTranslate.token": {
+          "type": "string",
+          "default": "",
+          "description": "（已废弃）Bing 翻译 API 的 Token，现使用 OpenCLI"
+        },
+        "realtimeTranslate.shortcut": {
+          "type": "string",
+          "default": "ctrl+shift+q",
+          "description": "触发翻译的快捷键"
+        },
+        "realtimeTranslate.historyLimit": {
+          "type": "number",
+          "default": 10,
+          "minimum": 1,
+          "maximum": 100,
+          "description": "翻译历史记录保留的最大条数"
+        },
+        "realtimeTranslate.fromLang": {
+          "type": "string",
+          "default": "auto-detect",
+          "enum": [
+            "auto-detect",
+            "en",
+            "zh-Hans",
+            "zh-Hant",
+            "ja",
+            "ko",
+            "fr",
+            "de",
+            "es",
+            "ru"
+          ],
+          "enumDescriptions": [
+            "自动检测语言",
+            "英语",
+            "中文简体",
+            "中文繁体",
+            "日语",
+            "韩语",
+            "法语",
+            "德语",
+            "西班牙语",
+            "俄语"
+          ],
+          "description": "源语言（默认自动检测）"
+        },
+        "realtimeTranslate.toLang": {
+          "type": "string",
+          "default": "zh-Hans",
+          "enum": [
+            "zh-Hans",
+            "en",
+            "zh-Hant",
+            "ja",
+            "ko",
+            "fr",
+            "de",
+            "es",
+            "ru"
+          ],
+          "enumDescriptions": [
+            "中文简体",
+            "英语",
+            "中文繁体",
+            "日语",
+            "韩语",
+            "法语",
+            "德语",
+            "西班牙语",
+            "俄语"
+          ],
+          "description": "目标语言（默认中文简体）"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.85.0",
+    "@types/node": "^20.0.0",
+    "typescript": "^5.3.0"
+  }
+}
